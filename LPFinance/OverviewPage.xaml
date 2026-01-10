@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LPFinance.OverviewPage"
+             Title="Monatsübersicht"
+             BackgroundColor="{StaticResource LPBackground}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+
+            <Grid ColumnDefinitions="*, Auto" VerticalOptions="Center">
+                <Label Text="Bilanz &amp; Erfolgsrechnung" 
+                       FontSize="26" 
+                       FontAttributes="Bold" 
+                       TextColor="{StaticResource LPBlue}" />
+
+                <Button Grid.Column="1"
+                        Text="Exportieren (PDF)" 
+                        Clicked="OnExportPdfClicked"
+                        BackgroundColor="{StaticResource LPOrange}" 
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="8" 
+                        HeightRequest="45" />
+            </Grid>
+
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="20" RowDefinitions="Auto, Auto">
+
+                <Border Grid.Column="0" StrokeShape="RoundRectangle 12" Padding="20" BackgroundColor="White">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Bilanz" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource LPBlue}" HorizontalOptions="Center" />
+
+                        <Label Text="Aktiven" FontAttributes="Bold" TextColor="Black" Margin="0,10,0,0"/>
+                        <CollectionView x:Name="AktivList">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*, Auto" Padding="5">
+                                        <Label Text="{Binding Name}" TextColor="Black" />
+                                        <Label Grid.Column="1" Text="{Binding Balance, StringFormat='{0:N2}'}" TextColor="Black" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <Label Text="Passiven" FontAttributes="Bold" TextColor="Black" Margin="0,10,0,0"/>
+                        <CollectionView x:Name="PassivList">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*, Auto" Padding="5">
+                                        <Label Text="{Binding Name}" TextColor="Black" />
+                                        <Label Grid.Column="1" Text="{Binding Balance, StringFormat='{0:N2}'}" TextColor="Black" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Column="1" StrokeShape="RoundRectangle 12" Padding="20" BackgroundColor="White">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Erfolgsrechnung" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource LPBlue}" HorizontalOptions="Center" />
+
+                        <Label Text="Aufwand" FontAttributes="Bold" TextColor="Black" Margin="0,10,0,0"/>
+                        <CollectionView x:Name="AufwandList">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*, Auto" Padding="5">
+                                        <Label Text="{Binding Name}" TextColor="Black" />
+                                        <Label Grid.Column="1" Text="{Binding Balance, StringFormat='{0:N2}'}" TextColor="Black" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <Label Text="Ertrag" FontAttributes="Bold" TextColor="Black" Margin="0,10,0,0"/>
+                        <CollectionView x:Name="ErtragList">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*, Auto" Padding="5">
+                                        <Label Text="{Binding Name}" TextColor="Black" />
+                                        <Label Grid.Column="1" Text="{Binding Balance, StringFormat='{0:N2}'}" TextColor="Black" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Row="1" Grid.ColumnSpan="2" Margin="0,20,0,0" StrokeShape="RoundRectangle 12" Padding="20" BackgroundColor="{StaticResource LPBlue}">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label x:Name="ResultTitleLabel" Text="Unternehmensergebnis" TextColor="White" FontSize="16" HorizontalOptions="Center" />
+                        <Label x:Name="ResultValueLabel" Text="CHF 0.00" TextColor="White" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LPFinance.InfoPage"
+             Title="Info &amp; Hilfe"
+             BackgroundColor="{StaticResource LPBackground}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            
+            <Image Source="LogoLPFINANCE.png" HeightRequest="100" HorizontalOptions="Center" Margin="0,10" />
+            
+            <Label Text="Über LPFinance" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   TextColor="{StaticResource LPBlue}" 
+                   HorizontalOptions="Center" />
+
+            <Label Text="LPFinance ist deine persönliche Buchhaltungslösung für den Desktop. Entwickelt für Kleinunternehmen und Freelancer, um Einnahmen und Ausgaben effizient zu verwalten."
+                   HorizontalTextAlignment="Center"
+                   TextColor="#333333" />
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <Label Text="Besuche unsere Webseite:" />
+                <Label Text="www.lpfinance.ch" 
+                       TextColor="{StaticResource LPBlue}" 
+                       TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLinkTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
+
+            <Label Text="Häufig gestellte Fragen (FAQ)" 
+                   FontSize="20" 
+                   FontAttributes="Bold" 
+                   Margin="0,10,0,5" />
+
+            <VerticalStackLayout Spacing="5">
+                <Button Text="Wie erstelle ich eine neue Buchung?" 
+                        Clicked="ToggleFaq1"
+                        BackgroundColor="{StaticResource LPBlue}"
+                        TextColor="White"
+                        HorizontalOptions="Fill" />
+                <Border x:Name="FaqAnswer1" IsVisible="False" Padding="10" BackgroundColor="White">
+                    <Label Text="Gehe im Menü auf 'Neue Buchung'. Dort kannst du Betrag, Soll- und Haben-Konto sowie eine Beschreibung eingeben." />
+                </Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Button Text="Wo sehe ich meine Bilanz?" 
+                        Clicked="ToggleFaq2"
+                        BackgroundColor="{StaticResource LPBlue}"
+                        TextColor="White"
+                        HorizontalOptions="Fill" />
+                <Border x:Name="FaqAnswer2" IsVisible="False" Padding="10" BackgroundColor="White">
+                    <Label Text="In der 'Monatsübersicht' findest du die aktuelle Bilanz sowie die Erfolgsrechnung deiner erfassten Konten." />
+                </Border>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LPFinance.MainPage"
+             Title="Dashboard">
+
+    <ScrollView BackgroundColor="{StaticResource LPBackground}">
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Willkommen bei LPFinance" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   TextColor="{StaticResource LPBlue}" />
+
+            <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="SpaceBetween">
+
+                <Border StrokeShape="RoundRectangle 12" 
+                        Padding="15" 
+                        WidthRequest="160"
+                        BackgroundColor="{StaticResource LPWhite}">
+                    <VerticalStackLayout>
+                        <Label Text="Einnahmen" TextColor="Black" FontSize="14"/>
+                        <Label x:Name="IncomeLabel" Text="CHF 0.00" TextColor="{StaticResource LPGreen}" FontSize="20" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border StrokeShape="RoundRectangle 12" 
+                        Padding="15" 
+                        WidthRequest="160"
+                        BackgroundColor="{StaticResource LPWhite}">
+                    <VerticalStackLayout>
+                        <Label Text="Ausgaben" TextColor="Black" FontSize="14"/>
+                        <Label x:Name="ExpenseLabel" Text="CHF 0.00" TextColor="{StaticResource LPRed}" FontSize="20" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+            </FlexLayout>
+
+            <Label Text="Letzte Buchungen" TextColor="Black" FontSize="18" FontAttributes="Bold" Margin="0,10,0,0"/>
+
+            <CollectionView x:Name="RecentBookingsList" HeightRequest="400">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeShape="RoundRectangle 12" 
+                                BackgroundColor="{StaticResource LPWhite}" 
+                                Margin="0,5" 
+                                Padding="15">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label Text="{Binding DisplayAccounts}" FontAttributes="Bold" TextColor="Black" />
+                                    <Label Text="{Binding Text}" FontSize="12" TextColor="Gray" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="1" 
+                                       Text="{Binding DisplayAmount}" 
+                                       VerticalOptions="Center" 
+                                       FontAttributes="Bold" 
+                                       TextColor="{StaticResource LPBlue}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <Label Text="Noch keine Buchungen vorhanden." 
+                           HorizontalOptions="Center" 
+                           Margin="20" 
+                           TextColor="Gray"/>
+                </CollectionView.EmptyView>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

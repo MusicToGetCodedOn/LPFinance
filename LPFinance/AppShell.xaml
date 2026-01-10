@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LPFinance.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LPFinance"
+    Shell.FlyoutBehavior="Disabled"
+    Title="LPFinance">
+
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="Auto, *" Padding="10,0" BackgroundColor="{StaticResource LPBlue}">
+            <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                <Image Source="lpfinance.png" 
+                       HeightRequest="35" 
+                       VerticalOptions="Center" />
+                <Label Text="LPFinance" 
+                       TextColor="White" 
+                       FontSize="20" 
+                       FontAttributes="Bold" 
+                       VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </Grid>
+    </Shell.TitleView>
+
+    <TabBar>
+        <Tab Title="Dashboard">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Neue Buchung">
+            <ShellContent ContentTemplate="{DataTemplate local:AddBookingPage}" />
+        </Tab>
+        <Tab Title="Konten">
+            <ShellContent ContentTemplate="{DataTemplate local:AccountsPage}" />
+        </Tab>
+        <Tab Title="Übersicht">
+            <ShellContent ContentTemplate="{DataTemplate local:OverviewPage}" />
+        </Tab>
+        <Tab Title="Info &amp; Hilfe">
+            <ShellContent ContentTemplate="{DataTemplate local:InfoPage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LPFinance.AccountsPage"
+             Title="Kontenerfassung"
+             BackgroundColor="{StaticResource LPBackground}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20" MaximumWidthRequest="600" HorizontalOptions="Center">
+
+            <Label Text="Neues Konto erfassen" FontSize="26" FontAttributes="Bold" TextColor="{StaticResource LPBlue}" />
+
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Kontoname" TextColor="Black" FontAttributes="Bold" />
+                <Border x:Name="NameBorder" StrokeShape="RoundRectangle 8" Padding="10,0" BackgroundColor="White" Stroke="Transparent">
+                    <Entry x:Name="AccountNameEntry" 
+                           Placeholder="z.B. Postkonto" 
+                           TextColor="Black" 
+                           PlaceholderColor="Gray" 
+                           HeightRequest="45"
+                           TextChanged="OnNameTextChanged" />
+                </Border>
+                <Label x:Name="NameErrorLabel" Text="Kontoname darf nicht leer sein" TextColor="{StaticResource LPRed}" FontSize="12" IsVisible="False" Margin="5,0,0,0"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Kontotyp" TextColor="Black" FontAttributes="Bold" />
+                <Border x:Name="TypeBorder" StrokeShape="RoundRectangle 8" Padding="10,0" BackgroundColor="White" Stroke="Transparent">
+                    <Picker x:Name="AccountTypePicker" 
+                            TextColor="Black" 
+                            TitleColor="Gray" 
+                            HeightRequest="45"
+                            SelectedIndexChanged="OnTypeSelectedIndexChanged">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Aktiv</x:String>
+                                <x:String>Passiv</x:String>
+                                <x:String>Aufwand</x:String>
+                                <x:String>Ertrag</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Border>
+                <Label x:Name="TypeErrorLabel" Text="Bitte wählen Sie einen Kontotyp aus" TextColor="{StaticResource LPRed}" FontSize="12" IsVisible="False" Margin="5,0,0,0"/>
+            </VerticalStackLayout>
+
+            <Button Text="Konto speichern" Clicked="OnSaveAccountClicked" 
+                    BackgroundColor="{StaticResource LPBlue}" TextColor="White" FontAttributes="Bold" CornerRadius="8" HeightRequest="50" />
+
+            <Label Text="Erfasste Konten" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0" TextColor="Black" />
+
+            <CollectionView x:Name="AccountsListView" HeightRequest="400">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeShape="RoundRectangle 8" Margin="0,5" Padding="15" BackgroundColor="White">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="Black" FontSize="16" />
+                                    <Label Text="{Binding Typ, StringFormat='Typ: {0}'}" FontSize="12" TextColor="Gray" />
+                                </VerticalStackLayout>
+                                <Border Grid.Column="1" BackgroundColor="{StaticResource LPOrange}" Padding="8,4" StrokeShape="RoundRectangle 4" VerticalOptions="Center">
+                                    <Label Text="{Binding Typ}" TextColor="White" FontSize="10" FontAttributes="Bold" />
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

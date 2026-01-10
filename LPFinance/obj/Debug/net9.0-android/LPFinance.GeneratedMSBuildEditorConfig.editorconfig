@@ -1,0 +1,73 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net9.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = LPFinance
+build_property.ProjectDir = C:\Users\loris\source\repos\LPFinance\LPFinance\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/loris/source/repos/LPFinance/LPFinance/AccountsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = LPFinance.AccountsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = AccountsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = AccountsPage.xaml
+
+[C:/Users/loris/source/repos/LPFinance/LPFinance/AddBookingPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = LPFinance.AddBookingPage.xaml
+build_metadata.AdditionalFiles.TargetPath = AddBookingPage.xaml
+build_metadata.AdditionalFiles.RelativePath = AddBookingPage.xaml
+
+[C:/Users/loris/source/repos/LPFinance/LPFinance/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = LPFinance.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/loris/source/repos/LPFinance/LPFinance/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = LPFinance.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/loris/source/repos/LPFinance/LPFinance/InfoPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = LPFinance.InfoPage.xaml
+build_metadata.AdditionalFiles.TargetPath = InfoPage.xaml
+build_metadata.AdditionalFiles.RelativePath = InfoPage.xaml
+
+[C:/Users/loris/source/repos/LPFinance/LPFinance/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = LPFinance.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[C:/Users/loris/source/repos/LPFinance/LPFinance/OverviewPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = LPFinance.OverviewPage.xaml
+build_metadata.AdditionalFiles.TargetPath = OverviewPage.xaml
+build_metadata.AdditionalFiles.RelativePath = OverviewPage.xaml
+
+[C:/Users/loris/source/repos/LPFinance/LPFinance/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = LPFinance.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/loris/source/repos/LPFinance/LPFinance/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = LPFinance.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
