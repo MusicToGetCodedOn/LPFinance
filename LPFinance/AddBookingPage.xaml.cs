@@ -8,32 +8,17 @@ public partial class AddBookingPage : ContentPage
         SollPicker.ItemsSource = DataService.AllAccounts;
         HabenPicker.ItemsSource = DataService.AllAccounts;
         JournalList.ItemsSource = DataService.AllBookings;
+        BookingDatePicker.Date = DateTime.Now;
     }
 
-    // --- ECHTZEIT-VALIDIERUNG ---
+    
+    private void OnAmountTextChanged(object sender, TextChangedEventArgs e) => ValidateAmount();
+    private void OnDescriptionTextChanged(object sender, TextChangedEventArgs e) => ValidateDescription();
+    private void OnSollSelectedIndexChanged(object sender, EventArgs e) => ValidateSoll();
+    private void OnHabenSelectedIndexChanged(object sender, EventArgs e) => ValidateHaben();
+    private void OnDateSelected(object sender, DateChangedEventArgs e) => ValidateDate();
 
-    private void OnAmountTextChanged(object sender, TextChangedEventArgs e)
-    {
-        ValidateAmount();
-    }
-
-    private void OnDescriptionTextChanged(object sender, TextChangedEventArgs e)
-    {
-        ValidateDescription();
-    }
-
-    private void OnSollSelectedIndexChanged(object sender, EventArgs e)
-    {
-        ValidateSoll();
-    }
-
-    private void OnHabenSelectedIndexChanged(object sender, EventArgs e)
-    {
-        ValidateHaben();
-    }
-
-    // --- VALIDIERUNGSLOGIK ---
-
+    
     private bool ValidateAmount()
     {
         bool isValid = double.TryParse(AmountEntry.Text, out double val) && val > 0;
@@ -66,22 +51,24 @@ public partial class AddBookingPage : ContentPage
         return isValid;
     }
 
-    // --- SPEICHERN ---
+    private bool ValidateDate()
+    {
+       
+        bool isValid = BookingDatePicker.Date <= DateTime.Now;
+        DateBorder.Stroke = isValid ? Colors.Transparent : Colors.Red;
+        DateErrorLabel.IsVisible = !isValid;
+        return isValid;
+    }
 
     private async void OnSaveBookingClicked(object sender, EventArgs e)
     {
-        // Alle Felder noch einmal prüfen
-        bool a = ValidateAmount();
-        bool b = ValidateDescription();
-        bool c = ValidateSoll();
-        bool d = ValidateHaben();
-
-        if (!a || !b || !c || !d) return;
+        if (!ValidateAmount() || !ValidateDescription() || !ValidateSoll() || !ValidateHaben() || !ValidateDate())
+            return;
 
         var soll = SollPicker.SelectedItem as AccountItem;
         var haben = HabenPicker.SelectedItem as AccountItem;
 
-        // Spezialregeln
+        
         if (soll.Typ == "Ertrag") { await DisplayAlert("Fehler", "Ertrag gehört ins Haben!", "OK"); return; }
         if (haben.Typ == "Aufwand") { await DisplayAlert("Fehler", "Aufwand gehört ins Soll!", "OK"); return; }
         if (soll.Name == haben.Name) { await DisplayAlert("Fehler", "Soll und Haben dürfen nicht gleich sein!", "OK"); return; }
@@ -91,7 +78,9 @@ public partial class AddBookingPage : ContentPage
             Text = DescriptionEntry.Text,
             Amount = double.Parse(AmountEntry.Text),
             SollKonto = soll.Name,
-            HabenKonto = haben.Name
+            HabenKonto = haben.Name,
+            Datum = BookingDatePicker.Date,
+            IsUrgent = UrgentSwitch.IsToggled
         });
 
         ResetForm();
@@ -99,21 +88,15 @@ public partial class AddBookingPage : ContentPage
 
     private void ResetForm()
     {
-        // Events kurz deaktivieren, um keine Validierung beim Leeren auszulösen
         DescriptionEntry.Text = string.Empty;
         AmountEntry.Text = string.Empty;
         SollPicker.SelectedIndex = -1;
         HabenPicker.SelectedIndex = -1;
+        BookingDatePicker.Date = DateTime.Now;
+        UrgentSwitch.IsToggled = false;
 
-        // UI aufräumen
-        AmountBorder.Stroke = Colors.Transparent;
-        SollBorder.Stroke = Colors.Transparent;
-        HabenBorder.Stroke = Colors.Transparent;
-        DescBorder.Stroke = Colors.Transparent;
-
-        AmountErrorLabel.IsVisible = false;
-        SollErrorLabel.IsVisible = false;
-        HabenErrorLabel.IsVisible = false;
-        DescErrorLabel.IsVisible = false;
+        
+        AmountBorder.Stroke = SollBorder.Stroke = HabenBorder.Stroke = DescBorder.Stroke = DateBorder.Stroke = Colors.Transparent;
+        AmountErrorLabel.IsVisible = SollErrorLabel.IsVisible = HabenErrorLabel.IsVisible = DescErrorLabel.IsVisible = DateErrorLabel.IsVisible = false;
     }
 }

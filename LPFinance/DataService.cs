@@ -1,8 +1,8 @@
-using System.Collections.ObjectModel;
+ï»¿using System.Collections.ObjectModel;
 
 namespace LPFinance
 {
-    // Diese Klassen dürfen NUR HIER stehen!
+    // Diese Klassen dÃ¼rfen NUR HIER stehen!
     public class AccountItem
     {
         public string Name { get; set; }
@@ -15,13 +15,16 @@ namespace LPFinance
         public double Amount { get; set; }
         public string SollKonto { get; set; }
         public string HabenKonto { get; set; }
-        public string DisplayAccounts => $"Soll: {SollKonto} ? Haben: {HabenKonto}";
-        public string DisplayAmount => $"CHF {Amount:N2}";
-    }
+        public DateTime Datum { get; set; } 
+        public bool IsUrgent { get; set; } 
 
+        public string DisplayAccounts => $"Soll: {SollKonto} â†’ Haben: {HabenKonto}";
+        public string DisplayAmount => $"CHF {Amount:N2}";
+        public string DisplayDate => Datum.ToString("dd.MM.yyyy"); 
+    }
     public static class DataService
     {
-        // Zentraler Speicher für die gesamte App
+        
         public static ObservableCollection<AccountItem> AllAccounts { get; } = new ObservableCollection<AccountItem>
         {
             new AccountItem { Name = "Kasse", Typ = "Aktiv" },
