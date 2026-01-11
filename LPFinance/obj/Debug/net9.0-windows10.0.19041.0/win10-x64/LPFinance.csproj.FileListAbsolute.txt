@@ -498,3 +498,5 @@ C:\Users\loris\source\repos\LPFinance\LPFinance\bin\Debug\net9.0-windows10.0.190
 C:\Users\loris\source\repos\LPFinance\LPFinance\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\qpdf.dll
 C:\Users\loris\source\repos\LPFinance\LPFinance\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\zlib1.dll
 C:\Users\loris\source\repos\LPFinance\LPFinance\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\LPFinance.sourcelink.json
+C:\Users\loris\source\repos\LPFinance\LPFinance\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\neue_buchung.scale-100.png
+C:\Users\loris\source\repos\LPFinance\LPFinance\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\neue_buchung.scale-100.png

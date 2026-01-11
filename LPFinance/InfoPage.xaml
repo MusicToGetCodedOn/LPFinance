@@ -19,7 +19,7 @@
             <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
 
             <Label Text="Über das Programm" FontSize="20" FontAttributes="Bold" TextColor="Black" />
-            <Label Text="LPFinance ist eine massgeschneiderte Buchhaltungslösung, die speziell für die Anforderungen der LB2 im Modul 223 entwickelt wurde. Sie ermöglicht eine einfache doppelte Buchhaltung mit automatischer Bilanzierung und PDF-Export."
+            <Label Text="LPFinance ist eine massgeschneiderte Buchhaltungslösung, die speziell für die Anforderungen der LB2 im Modul 322 entwickelt wurde. Sie ermöglicht eine einfache doppelte Buchhaltung mit automatischer Bilanzierung und PDF-Export."
                    TextColor="#444444" LineHeight="1.4" />
 
             <VerticalStackLayout Spacing="5" Margin="0,10">

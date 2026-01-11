@@ -8,11 +8,11 @@ namespace LPFinance
         {
             InitializeComponent();
 
-            // Verknüpfe die Liste im Dashboard mit dem zentralen Speicher
+            
             RecentBookingsList.ItemsSource = DataService.AllBookings;
         }
 
-        // Diese Methode läuft jedes Mal, wenn du die Seite öffnest
+       
         protected override void OnAppearing()
         {
             base.OnAppearing();
