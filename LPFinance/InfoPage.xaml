@@ -6,59 +6,79 @@
              BackgroundColor="{StaticResource LPBackground}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
-            
-            <Image Source="LogoLPFINANCE.png" HeightRequest="100" HorizontalOptions="Center" Margin="0,10" />
-            
-            <Label Text="Über LPFinance" 
-                   FontSize="24" 
-                   FontAttributes="Bold" 
-                   TextColor="{StaticResource LPBlue}" 
-                   HorizontalOptions="Center" />
+        <VerticalStackLayout Padding="25" Spacing="20" MaximumWidthRequest="700" HorizontalOptions="Center">
 
-            <Label Text="LPFinance ist deine persönliche Buchhaltungslösung für den Desktop. Entwickelt für Kleinunternehmen und Freelancer, um Einnahmen und Ausgaben effizient zu verwalten."
-                   HorizontalTextAlignment="Center"
-                   TextColor="#333333" />
-
-            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
-                <Label Text="Besuche unsere Webseite:" />
-                <Label Text="www.lpfinance.ch" 
-                       TextColor="{StaticResource LPBlue}" 
-                       TextDecorations="Underline">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnLinkTapped" />
-                    </Label.GestureRecognizers>
-                </Label>
-            </HorizontalStackLayout>
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Image Source="LogoLPFINANCE.png" HeightRequest="120" HorizontalOptions="Center" />
+                <Label Text="LPFinance" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource LPBlue}" HorizontalOptions="Center" />
+                <Border BackgroundColor="{StaticResource LPOrange}" Padding="10,2" StrokeShape="RoundRectangle 20" HorizontalOptions="Center">
+                    <Label Text="Version 1.0.4 - LB2 Edition" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                </Border>
+            </VerticalStackLayout>
 
             <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
 
-            <Label Text="Häufig gestellte Fragen (FAQ)" 
-                   FontSize="20" 
-                   FontAttributes="Bold" 
-                   Margin="0,10,0,5" />
+            <Label Text="Über das Programm" FontSize="20" FontAttributes="Bold" TextColor="Black" />
+            <Label Text="LPFinance ist eine massgeschneiderte Buchhaltungslösung, die speziell für die Anforderungen der LB2 im Modul 223 entwickelt wurde. Sie ermöglicht eine einfache doppelte Buchhaltung mit automatischer Bilanzierung und PDF-Export."
+                   TextColor="#444444" LineHeight="1.4" />
+
+            <VerticalStackLayout Spacing="5" Margin="0,10">
+                <Label Text="Kernfunktionen:" FontAttributes="Bold" TextColor="Black" />
+                <Label Text="• Echtzeit-Validierung bei der Dateneingabe" Margin="10,0" />
+                <Label Text="• Dynamische Bilanz &amp; Erfolgsrechnung" Margin="10,0" />
+                <Label Text="• Professioneller PDF-Export mit QuestPDF" Margin="10,0" />
+                <Label Text="• Zentrale Kontenerfassung nach Schweizer Standard" Margin="10,0" />
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
+
+            <Label Text="Häufig gestellte Fragen (FAQ)" FontSize="20" FontAttributes="Bold" TextColor="Black" />
 
             <VerticalStackLayout Spacing="5">
-                <Button Text="Wie erstelle ich eine neue Buchung?" 
-                        Clicked="ToggleFaq1"
-                        BackgroundColor="{StaticResource LPBlue}"
-                        TextColor="White"
-                        HorizontalOptions="Fill" />
-                <Border x:Name="FaqAnswer1" IsVisible="False" Padding="10" BackgroundColor="White">
-                    <Label Text="Gehe im Menü auf 'Neue Buchung'. Dort kannst du Betrag, Soll- und Haben-Konto sowie eine Beschreibung eingeben." />
+                <Button Text="Wie erstelle ich eine neue Buchung?" Clicked="ToggleFaq1" BackgroundColor="{StaticResource LPBlue}" TextColor="White" CornerRadius="8" />
+                <Border x:Name="FaqAnswer1" IsVisible="False" Padding="15" BackgroundColor="White" StrokeShape="RoundRectangle 8">
+                    <Label Text="Navigiere zum Tab 'Neue Buchung'. Wähle das Soll- und Habenkonto aus der Liste, gib den Betrag ein und speichere. Die Buchung erscheint sofort im Journal." TextColor="Black" />
                 </Border>
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="5">
-                <Button Text="Wo sehe ich meine Bilanz?" 
-                        Clicked="ToggleFaq2"
-                        BackgroundColor="{StaticResource LPBlue}"
-                        TextColor="White"
-                        HorizontalOptions="Fill" />
-                <Border x:Name="FaqAnswer2" IsVisible="False" Padding="10" BackgroundColor="White">
-                    <Label Text="In der 'Monatsübersicht' findest du die aktuelle Bilanz sowie die Erfolgsrechnung deiner erfassten Konten." />
+                <Button Text="Warum kann ich ein Ertragskonto nicht im Soll wählen?" Clicked="ToggleFaq2" BackgroundColor="{StaticResource LPBlue}" TextColor="White" CornerRadius="8" />
+                <Border x:Name="FaqAnswer2" IsVisible="False" Padding="15" BackgroundColor="White" StrokeShape="RoundRectangle 8">
+                    <Label Text="In der doppelten Buchhaltung nehmen Erträge im Haben zu. Um Fehlbuchungen zu vermeiden, verhindert LPFinance, dass Ertragskonten im Soll ausgewählt werden." TextColor="Black" />
                 </Border>
             </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Button Text="Wo finde ich mein exportiertes PDF?" Clicked="ToggleFaq3" BackgroundColor="{StaticResource LPBlue}" TextColor="White" CornerRadius="8" />
+                <Border x:Name="FaqAnswer3" IsVisible="False" Padding="15" BackgroundColor="White" StrokeShape="RoundRectangle 8">
+                    <Label Text="Nach dem Klick auf 'PDF Export' in der Monatsübersicht wird die Datei im Cache des Systems generiert und automatisch mit deinem Standard-PDF-Viewer geöffnet." TextColor="Black" />
+                </Border>
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,20" />
+
+            <Label Text="Kontakt &amp; Support" FontSize="20" FontAttributes="Bold" TextColor="Black" />
+            <VerticalStackLayout Spacing="10">
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Webseite:" FontAttributes="Bold" TextColor="Black" />
+                    <Label Text="www.lpfinance.ch" TextColor="{StaticResource LPBlue}" TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLinkTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Support-Email:" FontAttributes="Bold" TextColor="Black" />
+                    <Label Text="support@lpfinance.ch" TextColor="{StaticResource LPBlue}" TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEmailTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <Label Text="© 2026 LPFinance - Entwickelt von Loris P." FontSize="10" HorizontalOptions="Center" Margin="0,30,0,10" TextColor="Gray" />
 
         </VerticalStackLayout>
     </ScrollView>

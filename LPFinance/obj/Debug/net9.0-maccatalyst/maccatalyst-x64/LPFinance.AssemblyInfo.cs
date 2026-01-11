@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LPFinance")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+dc4d29c8a07426b6bec19a5aa2854c86d421410f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+3e1d567f0b462c862b254769fe947194a23987be")]
 [assembly: System.Reflection.AssemblyProductAttribute("LPFinance")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LPFinance")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
